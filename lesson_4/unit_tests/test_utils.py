@@ -1,8 +1,11 @@
 import unittest
 import json
+import os
+import sys
+sys.path.append(os.path.join(os.getcwd(), '..'))
 
-from lesson_4.common.utils import send_message, get_message
-from lesson_4.common.variables import TIME, ACTION, PRESENCE, USER, ACCOUNT_NAME, \
+from common.utils import send_message, get_message
+from common.variables import TIME, ACTION, PRESENCE, USER, ACCOUNT_NAME, \
     RESPONSE, ERROR, ENCODING
 
 
@@ -15,7 +18,7 @@ class TestSocket:
     def __init__(self, dict_message):
         self.dict_message = dict_message
         self.encoding_message = None
-        self.send_message = None
+        self.received_message = None
 
     def send(self, sending_message):
         """
@@ -25,7 +28,7 @@ class TestSocket:
         """
         json_message = json.dumps(self.dict_message)
         self.encoding_message = json_message.encode(ENCODING)
-        self.send_message = sending_message
+        self.received_message = sending_message
 
     def message_receiver(self, max_connections):
         """
@@ -56,8 +59,7 @@ class TestUtils(unittest.TestCase):
 
         test_socket = TestSocket(self.test_message)
         send_message(test_socket, self.test_message)
-        self.assertEqual(test_socket.encoding_message, test_socket.message_receiver)
-        self.assertEqual(Exception, send_message)
+        self.assertEqual(test_socket.encoding_message, test_socket.received_message)
 
     def test_send_message_bad(self):
 

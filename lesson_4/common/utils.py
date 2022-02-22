@@ -1,5 +1,5 @@
 import json
-from variables import MAX_PACKAGE_LENGTH, ENCODING
+from common.variables import MAX_PACKAGE_LENGTH, ENCODING
 
 
 def get_message(client):
@@ -27,6 +27,7 @@ def send_message(sock, message):
     :param message:
     :return:
     """
+
     js_message = json.dumps(message)
     encoded_message = js_message.encode(ENCODING)
     sock.send(encoded_message)
