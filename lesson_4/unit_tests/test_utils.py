@@ -52,7 +52,7 @@ class TestUtils(unittest.TestCase):
     good_response = {RESPONSE: 200}
     bad_response = {
         RESPONSE: 400,
-        ERROR: 'BAD REQUEST',
+        ERROR: 'error',
     }
 
     def test_send_message_good(self):
@@ -65,7 +65,7 @@ class TestUtils(unittest.TestCase):
 
         test_socket = TestSocket(self.test_message)
         send_message(test_socket, self.test_message)
-        self.assertRaises(TypeError, send_message, test_socket, 'wrong dictionary')
+        self.assertRaises(Exception, send_message, 'wrong dictionary')
 
     def test_get_message_good(self):
 

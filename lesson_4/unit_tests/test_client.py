@@ -12,18 +12,6 @@ class TestClient(unittest.TestCase):
     """
     Тесты клиента.
     """
-    # variables = {
-    #     'good_request': '200 : OK',
-    #     'bad_request': '400 BAD REQUEST',
-    #     'test_request': {
-    #         ACTION: PRESENCE,
-    #         TIME: 1645387814,
-    #         USER: {
-    #             ACCOUNT_NAME: 'test',
-    #         },
-    #         'encoding': ENCODING
-    #     },
-    # }
 
     def test_create_presence(self):
         """
@@ -44,7 +32,7 @@ class TestClient(unittest.TestCase):
 
     def test_server_error(self):
 
-        self.assertEqual(ValueError, process_ans, {ERROR: 'error'})
+        self.assertRaises(ValueError, process_ans, {ERROR: 'error'})
 
 
 if __name__ == '__main__':
