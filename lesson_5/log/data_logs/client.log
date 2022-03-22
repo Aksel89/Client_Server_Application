@@ -1,0 +1,4 @@
+2022-03-16 01:19:08,749 DEBUG client.py Create connection 127.0.0.1:7777
+2022-03-16 01:19:08,749 INFO client.py Message create: {'action': 'presence', 'time': 1647382748.7499332, 'user': {'ACCOUNT_NAME': 'Guest'}, 'encoding': 'utf-8'}
+2022-03-16 01:19:08,749 DEBUG client.py Create and send message: {'action': 'presence', 'time': 1647382748.7499332, 'user': {'ACCOUNT_NAME': 'Guest'}, 'encoding': 'utf-8'}
+2022-03-16 01:19:08,750 DEBUG client.py Server response: {'response': 200}
